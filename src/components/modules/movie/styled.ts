@@ -18,59 +18,19 @@ export const ShowDot = styled.div`
 
 export const ShowWrapper = styled.div`
     width: 25%;
-    padding: 2rem;
-
-    &:nth-child(1n) {
-        padding-left: 0;
-        padding-right: 2rem;
-    }
-
-    &:nth-child(3n) {
-        padding-right: 1rem;
-    }
-
-    &:nth-child(2n) {
-        padding-right: 2rem;
-    }
-
-    &:nth-child(4n) {
-        padding-right: 0;
-        padding-left: 1rem
-    }
+    padding: 2rem 2.25rem 2rem 0;
 
     @media (max-width: 1000px) {
         width: calc(100% / 3);
-
-        padding-right: calc(1rem / 3 * 2);
-
-        &:nth-child(2n) {
-            padding-left: calc(1rem / 3);
-            padding-right: calc(1rem / 3);
-        }
-
-        &:nth-child(3n) {
-            padding-right: 0;
-            padding-left: calc(1rem / 3 * 2);
-        }
     }
 
     @media (max-width: 760px) {
         width: 50%;
-        padding-right: 1rem;
-
-        &:nth-child(2n) {
-            padding-right: 0;
-            padding-left: 1rem;
-        }
     }
 
     @media (max-width: 580px) {
         width: 100%;
         padding: 1rem 0;
-
-        &:nth-child(1n) {
-            padding: 1rem 0;
-        }
     }
 `
 

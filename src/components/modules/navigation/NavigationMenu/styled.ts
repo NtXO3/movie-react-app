@@ -9,6 +9,9 @@ export const SidebarMenuWrapper = styled.div<SidebarMenuItemProps>`
 
     ${({ row }) => row && css`
         flex-direction: row;
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%);
     `}
 `
 

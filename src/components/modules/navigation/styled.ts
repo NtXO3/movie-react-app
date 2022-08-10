@@ -42,6 +42,7 @@ export const HeaderContainer = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
+    position: relative;
 `
 
 export const MobileLogo = styled.img`

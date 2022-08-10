@@ -19,6 +19,7 @@ const MoviesSearch = React.lazy(() => import('./pages/App/MoviesSearch'))
 const SeriesPage = React.lazy(() => import('./pages/App/Series'))
 const SeriesSearch = React.lazy(() => import('./pages/App/SeriesSearch'))
 const SavedShows = React.lazy(() => import('./pages/App/SavedShows'))
+const MyAccount = React.lazy(() => import('./pages/App/Account'))
 
 function App() {
   const queryClient = new QueryClient({
@@ -54,6 +55,7 @@ function App() {
                     <Route path='/series/search' element={<PrivateRoute component={SeriesSearch} />} />
 
                     <Route path="/saved" element={<PrivateRoute component={SavedShows} />} />
+                    <Route path="my-account" element={<PrivateRoute component={MyAccount} />} />
                   </Routes>
                 </ContentWrapper>
             </React.Suspense>
