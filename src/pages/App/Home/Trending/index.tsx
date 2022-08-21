@@ -1,17 +1,43 @@
 import * as React from 'react';
 import { useGetTrendingShows } from '../../../../services/queries/shows';
 import { TMDBResponse } from '../../../../types/shows';
-import { TrendingWrapper } from './styled';
+import { TrendingContainer, TrendingScrollButton, TrendingWrapper } from './styled';
 import { TrendingShow } from './TrendingShow';
 import { TrendingShowSkeleton } from './TrendingShow/styled';
+import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai'
 
 export const TrendingShows: React.FC<TrendingShowProps> = ({ setVideoUrl, setVideoModalOpen }) => {
     const { data: trendingShows, isLoading} = useGetTrendingShows();
+    const trendingShowsRef = React.useRef<HTMLDivElement | null>(null)
+
+    const handleScroll = (dir: 'left' | 'right') => {
+        if (!trendingShowsRef.current) { 
+            return
+        };
+
+        const { current: element} = trendingShowsRef;
+        console.log(element.scrollLeft, element.scrollWidth)
+
+        if (dir === 'left') {
+            element.scrollLeft = element.scrollLeft - 500
+        } else if (dir === 'right') {
+            element.scrollLeft = element.scrollLeft + 500
+        }
+    }
 
     return (
-        <TrendingWrapper>
-            {
-                isLoading ? (
+        <TrendingContainer>
+            <TrendingScrollButton 
+                position='left' 
+                onClick={() => handleScroll('left')}
+            >
+                <AiOutlineArrowLeft />
+            </TrendingScrollButton>
+            <TrendingScrollButton position='right' onClick={() => handleScroll('right')}>
+                <AiOutlineArrowRight />
+            </TrendingScrollButton>
+            <TrendingWrapper ref={trendingShowsRef}>
+                {isLoading ? (
                     new Array(5).fill(0).map((_, index) => <TrendingShowSkeleton key={index + 1} />)
                 ) : (
                     trendingShows.results.slice(0, 10).map((item: TMDBResponse) => (
@@ -22,9 +48,9 @@ export const TrendingShows: React.FC<TrendingShowProps> = ({ setVideoUrl, setVid
                             setVideoModalOpen={setVideoModalOpen}
                         />
                     ))
-                )
-            }
-        </TrendingWrapper>
+                )}
+            </TrendingWrapper>
+        </TrendingContainer>
     )
 }
 
