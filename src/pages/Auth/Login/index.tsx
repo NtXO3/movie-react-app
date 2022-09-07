@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { useNavigate } from 'react-router';
-import { Card } from '../../../components/common/card';
-import { Heading } from '../../../components/common/typography';
-import { AuthPageWrapper, FormLink, Logo } from '../../../components/modules/register';
-import { RegisterForm as LoginForm } from '../../../components/modules/RegisterForm';
-import AppLogo from '../../../assets/Logo.svg'
-import { UserAuth } from '../../../context/AuthContext';
+import { Card } from 'common/card';
+import { Heading } from 'common/typography';
+import { AuthPageWrapper, FormLink, Logo } from 'modules/register';
+import { RegisterForm as LoginForm } from 'modules/RegisterForm';
+import AppLogo from 'assets/Logo.svg'
+import { UserAuth } from 'context/AuthContext';
 
 const Login = () => {
     const navigate = useNavigate();

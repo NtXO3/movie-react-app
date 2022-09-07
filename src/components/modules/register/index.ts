@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Text } from "../../common/typography";
+import { Text } from "common/typography";
 
 export const AuthPageWrapper = styled.div`
     display: flex;

@@ -5,7 +5,7 @@ import { AiFillAppstore } from 'react-icons/ai'
 import { MdMovie, MdOndemandVideo } from 'react-icons/md'
 import { RiBookmarkFill } from 'react-icons/ri'
 import { SidebarBottom } from './NavigationAuth';
-import AppLogo from '../../../assets/Logo.svg'
+import AppLogo from 'assets/Logo.svg'
 
 const menuItems = [
     {

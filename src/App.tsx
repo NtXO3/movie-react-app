@@ -1,14 +1,15 @@
 import * as React from 'react';
 import { ThemeProvider } from 'styled-components';
-import { ContentWrapper } from './components/common';
-import GlobalStyle from './styles/GlobalStyles';
-import { theme } from './styles/theme';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { AuthContextProvider } from './context/AuthContext';
-import { Loading } from './components/modules/loading';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { PrivateRoute, PublicRoute } from './components/modules/auth';
 import { ToastContainer } from 'react-toastify';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+
+import { ContentWrapper } from 'common';
+import GlobalStyle from 'styles/GlobalStyles';
+import { theme } from 'styles/theme';
+import { AuthContextProvider } from 'context/AuthContext';
+import { Loading } from 'modules/loading';
+import { PrivateRoute, PublicRoute } from 'modules/auth';
 
 const Home = React.lazy(() => import('./pages/App/Home'))
 const SignUp = React.lazy(() => import('./pages/Auth/SignUp'))

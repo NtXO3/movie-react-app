@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useLocation } from 'react-router';
 import { SidebarMenuItem, SidebarMenuWrapper, SidebarLogo } from './styled';
-import AppLogo from '../../../../assets/Logo.svg'
+import AppLogo from 'assets/Logo.svg'
 
 export const SidebarMenu: React.FC<SidebarMenuProps> = ({ items, row }) => {
     const { pathname } = useLocation()

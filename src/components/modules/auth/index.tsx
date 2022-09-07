@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Navigate } from 'react-router';
-import { UserAuth } from '../../../context/AuthContext';
+import { UserAuth } from 'context/AuthContext';
 
 export const PublicRoute: React.FC<RouteProps> = ({ component: Component }) => {
     const { isLoading, user} = UserAuth();

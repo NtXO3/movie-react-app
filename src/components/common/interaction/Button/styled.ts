@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { LoaderAnimation } from "../../../../styles/animations";
+import { LoaderAnimation } from "styles/animations";
 
 export const ButtonLoader = styled.div<ButtonProps>`
     display: flex;

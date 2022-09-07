@@ -1,16 +1,16 @@
 import { doc, DocumentData, onSnapshot } from 'firebase/firestore';
 import * as React from 'react';
 import { useNavigate } from 'react-router';
-import { MoviesWrapper, ShowsWrapper } from '../../../components/common';
-import { Button } from '../../../components/common/interaction/Button';
-import { Heading } from '../../../components/common/typography';
-import { Show } from '../../../components/modules/movie';
-import { Sidebar, MobileHeader } from '../../../components/modules/navigation';
-import { SkeletonShow } from '../../../components/modules/skeletonMovie';
-import { VideoModal } from '../../../components/modules/videoModal';
-import { UserAuth } from '../../../context/AuthContext';
-import { db } from '../../../firebase';
-import { FirestoreShow } from '../../../types/shows';
+import { MoviesWrapper, ShowsWrapper } from 'common';
+import { Button } from 'common/interaction/Button';
+import { Heading } from 'common/typography';
+import { Show } from 'modules/movie';
+import { Sidebar, MobileHeader } from 'modules/navigation';
+import { SkeletonShow } from 'modules/skeletonMovie';
+import { VideoModal } from 'modules/videoModal';
+import { UserAuth } from 'context/AuthContext';
+import { db } from 'firebase';
+import { FirestoreShow } from 'types';
 import { EmptyText, EmptyWrapper } from './styled';
 
 const SavedShows: React.FC = () => {

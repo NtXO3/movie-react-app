@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { LoaderAnimation } from "../../../styles/animations";
+import { LoaderAnimation } from "styles/animations";
 
 export const LoadingScreen = styled.div`
     background-color: rgb(16, 20, 30);

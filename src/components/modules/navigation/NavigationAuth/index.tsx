@@ -2,7 +2,7 @@ import * as React from 'react';
 import { SidebarMenuItem } from '../NavigationMenu/styled';
 import { BiLogOut } from 'react-icons/bi'
 import { SidebarAuthContainer, SidebarUserProfile } from './styled';
-import { UserAuth } from '../../../../context/AuthContext';
+import { UserAuth } from 'context/AuthContext';
 import { useNavigate } from 'react-router';
 
 export const SidebarBottom: React.FC<SidebarBottomProps> = ({ row }) => {

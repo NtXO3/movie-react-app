@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { StyledPlayButton } from "../../../../../components/common/interaction/Play/styled";
-import { ShowOverlay } from "../../../../../components/modules/movie/styled";
-import { skeletonAnimation } from "../../../../../styles/animations";
+import { StyledPlayButton } from "common/interaction/Play/styled";
+import { SkeletonCss } from "common/skeleton";
+import { ShowOverlay } from "modules/movie/styled";
 
 export const TrendingShowWrapper = styled.div`
     position: relative;
@@ -57,14 +57,13 @@ export const TrendingShowDescription = styled.div`
 `
 
 export const TrendingShowSkeleton = styled.div`
+    display: inline-block;
     width: 470px;
     height: 230px;
-    background: rgba(255, 255, 255, 0.7) linear-gradient(90deg, transparent, transparent, rgba(255, 255, 255, 0.5), transparent, transparent);
-    color: transparent;
-    animation: ${skeletonAnimation} 1.5s linear infinite;
+    ${SkeletonCss}
     cursor: default;
     border-radius: ${({ theme }) => theme.ui.borderRadius.large};
     pointer-events: none;
     user-select: none;
-    margin-bottom: 16px;
+    margin-right: 24px;
 `

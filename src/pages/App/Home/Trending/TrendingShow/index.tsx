@@ -1,16 +1,16 @@
 import * as React from 'react';
-import { SaveButton } from '../../../../../components/common/interaction/Save';
-import getDataBackground from '../../../../../services/getBackground';
-import { FirestoreShow, TMDBResponse } from '../../../../../types/shows';
+import { SaveButton } from 'common/interaction/Save';
+import getDataBackground from 'services/getBackground';
+import { FirestoreShow, TMDBResponse } from 'types';
 import { TrendingShowDescription, TrendingShowImg, TrendingShowWrapper } from './styled';
-import { Heading, Text } from '../../../../../components/common/typography';
+import { Heading, Text } from 'common/typography';
 import { MdMovie, MdOndemandVideo } from 'react-icons/md'
-import { PlayButton } from '../../../../../components/common/interaction/Play';
-import { ShowTags, ShowDot, ShowOverlay } from '../../../../../components/modules/movie/styled';
-import { getMovieVideos } from '../../../../../services/queries/shows';
-import { MovieVideo } from '../../../../../services/queries/types';
+import { PlayButton } from 'common/interaction/Play';
+import { ShowTags, ShowDot, ShowOverlay } from 'modules/movie/styled';
+import { getMovieVideos } from 'queries/shows';
+import { MovieVideo } from 'queries/types';
 import { toast } from 'react-toastify';
-import { UserAuth } from '../../../../../context/AuthContext';
+import { UserAuth } from 'context/AuthContext';
 
 export const TrendingShow: React.FC<TrendingShowProps> = ({ item, setVideoUrl, setVideoModalOpen }) => {
     const [saved, setSaved] = React.useState(false)

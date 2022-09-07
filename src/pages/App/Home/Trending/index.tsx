@@ -1,10 +1,12 @@
 import * as React from 'react';
-import { useGetTrendingShows } from '../../../../services/queries/shows';
-import { TMDBResponse } from '../../../../types/shows';
-import { TrendingContainer, TrendingScrollButton, TrendingWrapper } from './styled';
+import { TMDBResponse } from 'types';
+import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai'
+
+import { useGetTrendingShows } from 'queries/shows';
+
 import { TrendingShow } from './TrendingShow';
 import { TrendingShowSkeleton } from './TrendingShow/styled';
-import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai'
+import { TrendingContainer, TrendingScrollButton, TrendingWrapper } from './styled';
 
 export const TrendingShows: React.FC<TrendingShowProps> = ({ setVideoUrl, setVideoModalOpen }) => {
     const { data: trendingShows, isLoading} = useGetTrendingShows();

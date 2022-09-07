@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { StyledPlayButton } from "../../common/interaction/Play/styled";
+import { StyledPlayButton } from "common/interaction/Play/styled";
 
 export const ShowTags = styled.div`
     display: flex;

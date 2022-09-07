@@ -1,13 +1,15 @@
 import * as React from 'react';
 import { MdMovie, MdOndemandVideo } from 'react-icons/md';
-import { UserAuth } from '../../../context/AuthContext';
-import getDataBackground from '../../../services/getBackground';
-import { getMovieVideos } from '../../../services/queries/shows';
-import { MovieVideo } from '../../../services/queries/types';
-import { FirestoreShow, TMDBResponse } from '../../../types/shows';
-import { PlayButton } from '../../common/interaction/Play';
-import { SaveButton } from '../../common/interaction/Save';
-import { Heading, Text } from '../../common/typography';
+
+import { UserAuth } from 'context/AuthContext';
+import getDataBackground from 'services/getBackground';
+import { getMovieVideos } from 'queries/shows';
+import { MovieVideo } from 'queries/types';
+import { FirestoreShow, TMDBResponse } from 'types';
+import { PlayButton } from 'common/interaction/Play';
+import { SaveButton } from 'common/interaction/Save';
+import { Heading, Text } from 'common/typography';
+
 import { ShowDescription, ShowDot, ShowImg, ShowImgWrapper, ShowOverlay, ShowTags, ShowWrapper } from './styled';
 
 export const Show: React.FC<ShowProps> = ({ item, setVideoModalOpen, setVideoUrl, type }) => {

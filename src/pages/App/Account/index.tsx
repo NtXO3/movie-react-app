@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { MobileHeader, Sidebar } from '../../../components/modules/navigation';
+import { MobileHeader, Sidebar } from 'modules/navigation';
 
 const MyAccount: React.FC = () => {
     return (

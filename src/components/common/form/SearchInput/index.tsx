@@ -1,7 +1,7 @@
+import { InputProps } from 'types';
 import * as React from 'react';
 import { SearchInputWrapper, StyledSearchInput, SearchInputIcon } from './styled';
 import { AiOutlineSearch } from 'react-icons/ai';
-import { InputProps } from '../../../../types/input';
 
 export const SearchInput: React.FC<InputProps & SearchInputProps> = ({ 
     placeholder, onSearch, onChange, value 
