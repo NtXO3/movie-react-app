@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { InputProps } from '../../../../types/input';
+import { InputProps } from 'types/input';
 import { InputError, InputErrorIcon, InputWrapper, StyledInput } from './styled';
 import { MdOutlineError } from 'react-icons/md'
 

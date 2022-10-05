@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query"
 import axios from "axios"
-import { TMDBResponse } from "../../types/shows"
-import requests from "../requests"
+import { TMDBResponse } from "../types/shows"
+import requests from "../services/requests"
 import { GetVideosResponseType } from "./types"
 
 const key = 'c8c98566ad1356b425fb4fc2834daa8e'

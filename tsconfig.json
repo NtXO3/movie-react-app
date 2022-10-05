@@ -21,13 +21,11 @@
     "jsx": "react-jsx",
     "baseUrl": "src",
     "paths": {
-        "common/*": ["components/common/*"],
-        "common": ["components/common/index"],
+        "queries/*": ["queries/*"],
         "modules/*": ["components/modules/*"],
         "styles/*": ["styles/*"],
         "types": ["types/index"],
         "services/*": ["services/*"],
-        "queries/*": ["services/queries/*"],
         "pages/*": ["pages/*"],
     }
   },

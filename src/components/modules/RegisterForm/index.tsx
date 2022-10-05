@@ -2,9 +2,9 @@ import * as React from 'react'
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router';
 import { validation } from 'services/validation';
-import { FormContainer } from 'common/form/FormContainer/styled';
-import { Input } from 'common/form/input';
-import { Button } from 'common/interaction/Button';
+import { FormContainer } from 'components/common/form/FormContainer/styled';
+import { Input } from 'components/common/form/input';
+import { Button } from 'components/common/interaction/Button';
 
 export const RegisterForm: React.FC<RegisterFormProps> = ({ firstTime, authFn }) => {
     const { register, handleSubmit, formState: { errors } } = useForm();

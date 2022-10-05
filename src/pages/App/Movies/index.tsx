@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { useNavigate } from 'react-router';
-import { MoviesWrapper, ShowsWrapper } from 'common';
-import { SearchInput } from 'common/form/SearchInput';
-import { Heading } from 'common/typography';
-import { Show } from 'modules/movie';
-import { Sidebar, MobileHeader } from 'modules/navigation';
-import { SkeletonShow } from 'modules/skeletonMovie';
-import { VideoModal } from 'modules/videoModal';
+import { MoviesWrapper, ShowsWrapper } from 'components/common';
+import { SearchInput } from 'components/common/form/SearchInput';
+import { Heading } from 'components/common/typography';
+import { Show } from 'components/modules/movie';
+import { Sidebar, MobileHeader } from 'components/modules/navigation';
+import { SkeletonShow } from 'components/modules/skeletonMovie';
+import { VideoModal } from 'components/modules/videoModal';
 import { useGetMovies, useGetTopRatedMovies } from 'queries/shows';
 import { TMDBResponse } from 'types';
 

@@ -1,14 +1,17 @@
 import React, { createContext, useContext } from "react"
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut, User } from "firebase/auth"
-import { auth, db } from "../firebase"
+import { createUserWithEmailAndPassword, getRedirectResult, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithRedirect, signOut, User } from "firebase/auth"
+import { auth, db } from "../firebase-config"
 import { arrayUnion, doc, DocumentData, getDoc, setDoc, updateDoc } from "firebase/firestore"
 import { FirestoreShow, TMDBResponse } from "../types/shows"
+import { useNavigate } from "react-router"
 
 const AuthContext = createContext<AuthContextType>({} as AuthContextType)
 
 export function AuthContextProvider({ children }: any) {
     const [user, setUser] = React.useState<User | null>(null)
     const [isLoading, setIsLoading] = React.useState(true);
+    const googleProvider = new GoogleAuthProvider();
+    const [oauthLoading, setOauthLoading] = React.useState(false);
 
     function signUp(email: string, password: string) {
         createUserWithEmailAndPassword(auth, email, password)
@@ -29,6 +32,20 @@ export function AuthContextProvider({ children }: any) {
         const docRef = doc(db, 'users', `${user?.email}`)
         const docSnap = await getDoc(docRef)
         return docSnap.data()?.savedMovies
+    }
+
+    const signInWithGoogle = async () => {
+        await signInWithRedirect(auth, googleProvider);
+        setOauthLoading(true)
+        getRedirectResult(auth)
+            .then((result) => {
+                if (result) {
+                    setUser(result.user)
+                }
+            })
+            .catch(err => {
+                setOauthLoading(false)
+            })
     }
 
     const movieID = doc(db, 'users', `${user?.email}`)
@@ -75,7 +92,7 @@ export function AuthContextProvider({ children }: any) {
 
     return (
         <AuthContext.Provider value={{
-            user, signUp, logIn, logOut, isLoading, saveShow, deleteSavedShow, getUserData,
+            user, signUp, logIn, logOut, isLoading, saveShow, deleteSavedShow, getUserData, signInWithGoogle, oauthLoading
         }}>
             {children}
         </AuthContext.Provider>
@@ -91,7 +108,9 @@ type AuthContextType = {
     isLoading: boolean;
     saveShow: (item: TMDBResponse, setSaved: (saved: boolean) => void, type?: 'movie' | 'tv') => void;
     deleteSavedShow: (item: TMDBResponse, setSaved: (saved: boolean) => void) => void;
-    getUserData: () => Promise<DocumentData | undefined>
+    getUserData: () => Promise<DocumentData | undefined>;
+    signInWithGoogle: () => void;
+    oauthLoading: boolean;
 }
 
 export function UserAuth() {

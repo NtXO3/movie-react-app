@@ -3,12 +3,13 @@ import { MdMovie, MdOndemandVideo } from 'react-icons/md';
 
 import { UserAuth } from 'context/AuthContext';
 import getDataBackground from 'services/getBackground';
+
 import { getMovieVideos } from 'queries/shows';
 import { MovieVideo } from 'queries/types';
 import { FirestoreShow, TMDBResponse } from 'types';
-import { PlayButton } from 'common/interaction/Play';
-import { SaveButton } from 'common/interaction/Save';
-import { Heading, Text } from 'common/typography';
+import { PlayButton } from 'components/common/interaction/Play';
+import { SaveButton } from 'components/common/interaction/Save';
+import { Heading, Text } from 'components/common/typography';
 
 import { ShowDescription, ShowDot, ShowImg, ShowImgWrapper, ShowOverlay, ShowTags, ShowWrapper } from './styled';
 

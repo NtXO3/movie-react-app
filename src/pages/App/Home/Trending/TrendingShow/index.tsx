@@ -1,12 +1,12 @@
 import * as React from 'react';
-import { SaveButton } from 'common/interaction/Save';
+import { SaveButton } from 'components/common/interaction/Save';
 import getDataBackground from 'services/getBackground';
 import { FirestoreShow, TMDBResponse } from 'types';
 import { TrendingShowDescription, TrendingShowImg, TrendingShowWrapper } from './styled';
-import { Heading, Text } from 'common/typography';
+import { Heading, Text } from 'components/common/typography';
 import { MdMovie, MdOndemandVideo } from 'react-icons/md'
-import { PlayButton } from 'common/interaction/Play';
-import { ShowTags, ShowDot, ShowOverlay } from 'modules/movie/styled';
+import { PlayButton } from 'components/common/interaction/Play';
+import { ShowTags, ShowDot, ShowOverlay } from 'components/modules/movie/styled';
 import { getMovieVideos } from 'queries/shows';
 import { MovieVideo } from 'queries/types';
 import { toast } from 'react-toastify';

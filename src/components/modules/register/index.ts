@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Text } from "common/typography";
+import { Text } from "components/common/typography";
 
 export const AuthPageWrapper = styled.div`
     display: flex;
@@ -19,6 +19,7 @@ export const FormLink = styled(Text)`
     width: 100%;
     display: flex;
     justify-content: center;
+    margin-bottom: 4px;
 
     & > span {
         color: ${({ theme }) => theme.colors.primary};

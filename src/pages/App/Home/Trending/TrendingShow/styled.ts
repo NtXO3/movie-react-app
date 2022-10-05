@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { StyledPlayButton } from "common/interaction/Play/styled";
-import { SkeletonCss } from "common/skeleton";
-import { ShowOverlay } from "modules/movie/styled";
+import { StyledPlayButton } from "components/common/interaction/Play/styled";
+import { SkeletonCss } from "components/common/skeleton";
+import { ShowOverlay } from "components/modules/movie/styled";
 
 export const TrendingShowWrapper = styled.div`
     position: relative;
