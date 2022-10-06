@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { QueryClientProvider } from '@tanstack/react-query';
 
 import { ContentWrapper } from 'components/common';
 import GlobalStyle from 'styles/GlobalStyles';
@@ -21,6 +20,7 @@ const MyAccount = React.lazy(() => import('./pages/App/Account'))
 
 function App() {
   const { oauthLoading } = UserAuth();
+  console.log(oauthLoading);
 
   if (oauthLoading) {
     return <Loading />

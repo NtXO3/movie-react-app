@@ -31,15 +31,13 @@ export const TrendingShow: React.FC<TrendingShowProps> = ({ item, setVideoUrl, s
         try {
             const { results } = await getMovieVideos(item.id, item.media_type)
             if (!results.length) {
-                console.log('no videos')
-                return toast('No videos found for this show')
+                throw new Error('No videos found for this show')
             };
     
             const video = results.find((item: MovieVideo) => item.type === 'Trailer' || item.type === 'Teaser' || item.type === 'Clip') || results[0]
             setVideoUrl(video.key)
             setVideoModalOpen(true)
         } catch (err) {
-            console.log('error')
             toast.error('Something went wrong getting this video')
         }
     }

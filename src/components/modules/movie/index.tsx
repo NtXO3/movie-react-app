@@ -10,6 +10,7 @@ import { FirestoreShow, TMDBResponse } from 'types';
 import { PlayButton } from 'components/common/interaction/Play';
 import { SaveButton } from 'components/common/interaction/Save';
 import { Heading, Text } from 'components/common/typography';
+import NoImage from 'assets/no-image-available.png';
 
 import { ShowDescription, ShowDot, ShowImg, ShowImgWrapper, ShowOverlay, ShowTags, ShowWrapper } from './styled';
 
@@ -30,7 +31,6 @@ export const Show: React.FC<ShowProps> = ({ item, setVideoModalOpen, setVideoUrl
     }
 
     const handleIsSaved = async () => {
-        console.log('this ran for ' + item.title)
         const data = await getUserData()
         if (data?.find((dbItem: FirestoreShow) => dbItem.id === item.id)) {
             setSaved(true)
@@ -44,7 +44,7 @@ export const Show: React.FC<ShowProps> = ({ item, setVideoModalOpen, setVideoUrl
     return (
         <ShowWrapper>
             <ShowImgWrapper>
-                <ShowImg src={getDataBackground(item.backdrop_path)} />
+                <ShowImg src={item.backdrop_path ? getDataBackground(item.backdrop_path) : NoImage} />
                 <ShowOverlay />
                 <PlayButton onClick={showMovieVideo}/>
                 <SaveButton isSaved={saved} onClick={() => {

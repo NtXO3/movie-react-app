@@ -3,7 +3,6 @@ import { createUserWithEmailAndPassword, getRedirectResult, GoogleAuthProvider, 
 import { auth, db } from "../firebase-config"
 import { arrayUnion, doc, DocumentData, getDoc, setDoc, updateDoc } from "firebase/firestore"
 import { FirestoreShow, TMDBResponse } from "../types/shows"
-import { useNavigate } from "react-router"
 
 const AuthContext = createContext<AuthContextType>({} as AuthContextType)
 
@@ -35,13 +34,16 @@ export function AuthContextProvider({ children }: any) {
     }
 
     const signInWithGoogle = async () => {
-        await signInWithRedirect(auth, googleProvider);
-        setOauthLoading(true)
+        signInWithRedirect(auth, googleProvider)
+            .then(() => {
+                setOauthLoading(true)
+            })
         getRedirectResult(auth)
             .then((result) => {
                 if (result) {
                     setUser(result.user)
                 }
+                setOauthLoading(false)
             })
             .catch(err => {
                 setOauthLoading(false)
@@ -51,7 +53,6 @@ export function AuthContextProvider({ children }: any) {
     const movieID = doc(db, 'users', `${user?.email}`)
 
     const saveShow = async (item: TMDBResponse, setSaved: (saved: boolean) => void, media_type?: 'movie' | 'tv') => {
-        console.log(item)
         if (user?.email) {
             setSaved(true)
             await updateDoc(movieID, {
@@ -80,7 +81,7 @@ export function AuthContextProvider({ children }: any) {
     }
 
     React.useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (currentUser: any) => {
+        const unsubscribe = onAuthStateChanged(auth, (currentUser: User | null) => {
             setUser(currentUser)
             setIsLoading(false)
         })

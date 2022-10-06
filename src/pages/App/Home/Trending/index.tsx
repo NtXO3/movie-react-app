@@ -18,7 +18,6 @@ export const TrendingShows: React.FC<TrendingShowProps> = ({ setVideoUrl, setVid
         };
 
         const { current: element} = trendingShowsRef;
-        console.log(element.scrollLeft, element.scrollWidth)
 
         if (dir === 'left') {
             element.scrollLeft = element.scrollLeft - 500

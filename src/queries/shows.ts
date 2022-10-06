@@ -22,7 +22,6 @@ export const useGetRecommendedShows = () => {
         async () => {
             const { data: moviesDiscover } = await axios.get(requests.requestDiscoverMovie)
             const { data: seriesDiscover } = await axios.get(requests.requestDiscoverSeries)
-            console.log(seriesDiscover.results.map((item: any) => ({...item, media_type: 'tv'})))
             const data = {
                 page: 1,
                 results: [
@@ -30,7 +29,6 @@ export const useGetRecommendedShows = () => {
                     ...moviesDiscover.results.slice(0, 8).map((item: any) => ({ ...item, media_type: 'movie'}))
                 ].sort((a, b) => b.vote_average - a.vote_average)
             }
-            console.log(data)
             return data;
         }
     )
