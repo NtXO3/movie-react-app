@@ -3,9 +3,9 @@ import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signInWithEmailAndPassword,
-  signInWithRedirect,
   signOut,
   User,
+  UserCredential,
 } from "firebase/auth";
 import { auth, db } from "../firebase-config";
 import {
@@ -24,18 +24,29 @@ export function AuthContextProvider({ children }: any) {
   const [user, setUser] = React.useState<User | null>(null);
   const [isLoading, setIsLoading] = React.useState(true);
 
-  function signUp(email: string, password: string) {
-    createUserWithEmailAndPassword(auth, email, password);
-    setDoc(doc(db, "users", email), {
-      savedMovies: [],
-    });
+  async function signUp(email: string, password: string): Promise<void> {
+    try {
+      const { user } = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      await setDoc(doc(db, "users", email), {
+        savedMovies: [],
+      });
+      if (user) {
+        await signInWithEmailAndPassword(auth, email, password);
+      }
+    } catch (error) {
+      console.error(error);
+    }
   }
 
-  function logIn(email: string, password: string) {
+  function logIn(email: string, password: string): Promise<UserCredential> {
     return signInWithEmailAndPassword(auth, email, password);
   }
 
-  function logOut() {
+  function logOut(): Promise<void> {
     return signOut(auth);
   }
 
@@ -112,9 +123,9 @@ export function AuthContextProvider({ children }: any) {
 
 type AuthContextType = {
   user: User | null;
-  signUp: (email: string, password: string) => void;
-  logIn: (email: string, password: string) => void;
-  logOut: () => void;
+  signUp: (email: string, password: string) => Promise<void>;
+  logIn: (email: string, password: string) => Promise<UserCredential>;
+  logOut: () => Promise<void>;
   isLoading: boolean;
   saveShow: (
     item: TMDBResponse,
